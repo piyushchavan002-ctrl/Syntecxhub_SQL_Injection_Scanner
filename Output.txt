@@ -1,0 +1,21 @@
+============================================================
+  SCAN REPORT
+============================================================
+  Target       : http://localhost/dvwa/vulnerabilities/sqli/
+  Started      : 2024-11-15T10:23:01
+  Finished     : 2024-11-15T10:23:44
+  Total Reqs   : 198
+  Vulnerable   : 3
+============================================================
+
+  [1] Parameter : id
+      Type      : error_based
+      Payload   : '
+      Evidence  : DB error signature: ...You have an error in your SQL syntax...
+      HTTP      : 200  (0.312s)
+
+  [2] Parameter : id
+      Type      : time_based
+      Payload   : '; SELECT SLEEP(5)--
+      Evidence  : Response delayed 5.21s (time-based blind SQLi)
+      HTTP      : 200  (5.213s)
